@@ -14,12 +14,12 @@ CREATE SCHEMA animal
 
 -- Table: "ANIMAL"
 
--- DROP TABLE "ANIMAL";
+--DROP TABLE animal."ANIMAL" cascade;
 
 CREATE TABLE animal."ANIMAL"
 (
   id integer NOT NULL,
-  name character varying(20)[] NOT NULL,
+  name character varying(20) NOT NULL,
   gender_type integer NOT NULL,
   birthday date NOT NULL,
   favorite boolean NOT NULL,
@@ -31,13 +31,13 @@ CREATE TABLE animal."ANIMAL"
 
 -- Table: "FAVORITE_CLOTHES"
 
--- DROP TABLE "FAVORITE_CLOTHES";
+--DROP TABLE animal."FAVORITE_CLOTHES" cascade;
 
 CREATE TABLE animal."FAVORITE_CLOTHES"
 (
   id integer NOT NULL,
   animal_id integer NOT NULL,
-  favorite_clothes character varying(20)[] NOT NULL,
+  favorite_clothes character varying(20) NOT NULL,
   regist_time timestamp without time zone NOT NULL DEFAULT now(),
   CONSTRAINT "PK_FAVORITE_CLOTHES" PRIMARY KEY (id),
   CONSTRAINT "FK_FAVORITE_CLOTHES" FOREIGN KEY (animal_id)
